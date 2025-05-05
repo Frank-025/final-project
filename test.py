@@ -1,4 +1,4 @@
-from app import coding_problem
+from app import Problem
 
 test_list = ['water', 'armadillo', 'pplllasllllasd', 'cheat']
 

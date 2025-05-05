@@ -1,8 +1,11 @@
+categories = ['Strings', 'Lists', 'Booleans', 'Vocabulary']
+
+
 # Coding problem basic solution:
 # What makes this not good is the use of exec().
 # In the real world, this is extremely dangerous without extensive handling
 # to ensure no one can inject their own harmful code. For the purposes of a theoretical project, it's fine.
-class coding_problem:
+class Problem:
 
     def __init__(self, question='', q_desc='', q_code='', q_answer='', test_inputs=[]):
         # We keep the question separate, so we can use it later to call it as a function
@@ -68,7 +71,8 @@ class coding_problem:
         print(f"Score: {counter}")
 
 
-demo = coding_problem('splice', 'measure the length of a string and splice it in half', 'def splice(text):\n', '\tif len(text) % 2 > 0:\n\t\treturn text[len(text) - 2:len(text)]\n\treturn text[len(text) // 2:len(text)]',
-                      ["'armadillo'", "'cheat'"])
+demo = Problem('splice', 'measure the length of a string and splice it in half', 'def splice(text):\n',
+                   '\tif len(text) % 2 > 0:\n\t\treturn text[len(text) - 2:len(text)]\n\treturn text[len(text) // 2:len(text)]',
+                   ["'armadillo'", "'cheat'"])
 
 demo.test_answer('\tif len(text) % 2 > 0:\n\t\treturn text[len(text) - 2:len(text)]\n\treturn text[len(text) // 2:len(text)]')
