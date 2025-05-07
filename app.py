@@ -1,4 +1,8 @@
 categories = ['Strings', 'Lists', 'Booleans', 'Vocabulary']
+s_list = ['Placeholder', 'Placeholder', 'Placeholder', 'Placeholder']
+l_list = []
+b_list = []
+v_list = []
 
 
 # Coding problem basic solution:
@@ -71,8 +75,8 @@ class Problem:
         print(f"Score: {counter}")
 
 
-demo = Problem('splice', 'measure the length of a string and splice it in half', 'def splice(text):\n',
-                   '\tif len(text) % 2 > 0:\n\t\treturn text[len(text) - 2:len(text)]\n\treturn text[len(text) // 2:len(text)]',
-                   ["'armadillo'", "'cheat'"])
-
-demo.test_answer('\tif len(text) % 2 > 0:\n\t\treturn text[len(text) - 2:len(text)]\n\treturn text[len(text) // 2:len(text)]')
+# demo = Problem('splice', 'measure the length of a string and splice it in half', 'def splice(text):\n',
+#                    '\tif len(text) % 2 > 0:\n\t\treturn text[len(text) - 2:len(text)]\n\treturn text[len(text) // 2:len(text)]',
+#                    ["'armadillo'", "'cheat'"])
+#
+# demo.test_answer('\tif len(text) % 2 > 0:\n\t\treturn text[len(text) - 2:len(text)]\n\treturn text[len(text) // 2:len(text)]')
