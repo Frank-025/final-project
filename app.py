@@ -1,9 +1,9 @@
 categories = ['Strings', 'Lists', 'Booleans', 'Vocabulary']
-s_list = ['Placeholder', 'Placeholder', 'Placeholder', 'Placeholder']
+s_list = ['make_baab', 'split', 'Placeholder', 'Placeholder']
 l_list = []
 b_list = []
 v_list = []
-
+many_val = False
 
 # Coding problem basic solution:
 # What makes this not good is the use of exec().
@@ -22,7 +22,7 @@ class Problem:
         self.code = q_code
 
         # A successful answer
-        self.q_answer = q_answer
+        self.q_answer = "\n\t"
 
         # A list of test inputs to run and compare for score
         self.test_inputs = test_inputs
@@ -37,15 +37,17 @@ class Problem:
         counter = 0
 
         # Create a loop to run through the test cases
+        if len(self.test_inputs) > 1:
+            many_val = True
+        else:
+            many_val = False
         for ti in self.test_inputs:
 
             # Unpack the test variables
-            if type(self.test_inputs) is str or type(self.test_inputs) is int:
+            if not many_val:
                 x = ti
-                checker = False
             else:
                 x, y = ti
-                checker = True
 
             # Two dictionaries so we can grab the variables used in the exec() function
             grab1, grab2 = {}, {}
@@ -55,10 +57,10 @@ class Problem:
 
             # Attach the variable we'll be collecting in the grab dictionaries, as well as setting up
             # the run. Print statement is there for debugging/ensuring output is desired
-            if checker is False:
+            if many_val is False:
                 new_str += f'\n\nmain_answer = {self.question}({x})'
                 u_copy += f"\n\nmain_answer = {self.question}({x})"
-            elif checker is True:
+            elif many_val is True:
                 new_str += f'\n\nmain_answer = {self.question}({x}, {y})'
                 u_copy += f"\n\nmain_answer = {self.question}({x}, {y})"
             print(new_str)
@@ -75,8 +77,8 @@ class Problem:
         print(f"Score: {counter}")
 
 
-# demo = Problem('splice', 'measure the length of a string and splice it in half', 'def splice(text):\n',
-#                    '\tif len(text) % 2 > 0:\n\t\treturn text[len(text) - 2:len(text)]\n\treturn text[len(text) // 2:len(text)]',
-#                    ["'armadillo'", "'cheat'"])
-#
-# demo.test_answer('\tif len(text) % 2 > 0:\n\t\treturn text[len(text) - 2:len(text)]\n\treturn text[len(text) // 2:len(text)]')
+demo = Problem('split', 'measure the length of a string and splice it in half', 'def splice(text):\n',
+                   '\tif len(text) % 2 > 0:\n\t\treturn text[len(text) - 2:len(text)]\n\treturn text[len(text) // 2:len(text)]',
+                   ["'armadillo'", "'cheat'"])
+
+demo.test_answer('\tif len(text) % 2 > 0:\n\t\treturn text[len(text) - 2:len(text)]\n\treturn text[len(text) // 2:len(text)]')
