@@ -22,7 +22,7 @@ class Problem:
         self.code = q_code
 
         # A successful answer
-        self.q_answer = "\n\t"
+        self.q_answer = q_answer
 
         # A list of test inputs to run and compare for score
         self.test_inputs = test_inputs
@@ -41,12 +41,12 @@ class Problem:
             many_val = True
         else:
             many_val = False
-        for ti in self.test_inputs:
 
+        for ti in self.test_inputs:
             # Unpack the test variables
             if not many_val:
                 x = ti
-            else:
+            elif many_val:
                 x, y = ti
 
             # Two dictionaries so we can grab the variables used in the exec() function
@@ -57,10 +57,10 @@ class Problem:
 
             # Attach the variable we'll be collecting in the grab dictionaries, as well as setting up
             # the run. Print statement is there for debugging/ensuring output is desired
-            if many_val is False:
+            if not many_val:
                 new_str += f'\n\nmain_answer = {self.question}({x})'
                 u_copy += f"\n\nmain_answer = {self.question}({x})"
-            elif many_val is True:
+            elif many_val:
                 new_str += f'\n\nmain_answer = {self.question}({x}, {y})'
                 u_copy += f"\n\nmain_answer = {self.question}({x}, {y})"
             print(new_str)
@@ -77,8 +77,8 @@ class Problem:
         print(f"Score: {counter}")
 
 
-demo = Problem('split', 'measure the length of a string and splice it in half', 'def splice(text):\n',
-                   '\tif len(text) % 2 > 0:\n\t\treturn text[len(text) - 2:len(text)]\n\treturn text[len(text) // 2:len(text)]',
-                   ["'armadillo'", "'cheat'"])
-
-demo.test_answer('\tif len(text) % 2 > 0:\n\t\treturn text[len(text) - 2:len(text)]\n\treturn text[len(text) // 2:len(text)]')
+# demo = Problem('split', 'measure the length of a string and splice it in half', 'def splice(text):\n',
+#                    '\tif len(text) % 2 > 0:\n\t\treturn text[len(text) - 2:len(text)]\n\treturn text[len(text) // 2:len(text)]',
+#                    ["'armadillo'", "'cheat'"])
+#
+# demo.test_answer('\tif len(text) % 2 > 0:\n\t\treturn text[len(text) - 2:len(text)]\n\treturn text[len(text) // 2:len(text)]')
