@@ -3,7 +3,6 @@ s_list = ['make_baab', 'split', 'Placeholder', 'Placeholder']
 l_list = []
 b_list = []
 v_list = []
-many_val = False
 
 # Coding problem basic solution:
 # What makes this not good is the use of exec().
@@ -37,17 +36,10 @@ class Problem:
         counter = 0
 
         # Create a loop to run through the test cases
-        if len(self.test_inputs) > 1:
-            many_val = True
-        else:
-            many_val = False
-
         for ti in self.test_inputs:
+
             # Unpack the test variables
-            if not many_val:
-                x = ti
-            elif many_val:
-                x, y = ti
+            x, y = ti
 
             # Two dictionaries so we can grab the variables used in the exec() function
             grab1, grab2 = {}, {}
@@ -55,14 +47,10 @@ class Problem:
             # Create new copies of the strings for testing
             u_copy, new_str = user_question, full_question
 
-            # Attach the variable we'll be collecting in the grab dictionaries, as well as setting up
+            # Attach the variable we'll be collection in the grab dictionaries, as well as setting up
             # the run. Print statement is there for debugging/ensuring output is desired
-            if not many_val:
-                new_str += f'\n\nmain_answer = {self.question}({x})'
-                u_copy += f"\n\nmain_answer = {self.question}({x})"
-            elif many_val:
-                new_str += f'\n\nmain_answer = {self.question}({x}, {y})'
-                u_copy += f"\n\nmain_answer = {self.question}({x}, {y})"
+            new_str += f"\n\nmain_answer = {self.question}({x}, {y})"
+            u_copy += f"\n\nmain_answer = {self.question}({x}, {y})"
             print(new_str)
             print(u_copy)
 
@@ -76,9 +64,8 @@ class Problem:
 
         print(f"Score: {counter}")
 
-
-# demo = Problem('split', 'measure the length of a string and splice it in half', 'def splice(text):\n',
+# demo = Problem('split', 'measure the length of a string and splice it in half', 'def split(text, plac):\n',
 #                    '\tif len(text) % 2 > 0:\n\t\treturn text[len(text) - 2:len(text)]\n\treturn text[len(text) // 2:len(text)]',
-#                    ["'armadillo'", "'cheat'"])
+#                    [("'armadillo'", "'cheat'"), ("'pplllasllllasd'", "'wonder'")])
 #
 # demo.test_answer('\tif len(text) % 2 > 0:\n\t\treturn text[len(text) - 2:len(text)]\n\treturn text[len(text) // 2:len(text)]')
