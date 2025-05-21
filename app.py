@@ -1,6 +1,6 @@
 categories = ['Strings', 'Lists', 'Booleans', 'Vocabulary']
 s_list = ['make_baab', 'split', 'Placeholder', 'Placeholder']
-l_list = []
+l_list = ['first_last6', '', '', '']
 b_list = []
 v_list = []
 
@@ -69,3 +69,5 @@ class Problem:
 #                    [("'armadillo'", "'cheat'"), ("'pplllasllllasd'", "'wonder'")])
 #
 # demo.test_answer('\tif len(text) % 2 > 0:\n\t\treturn text[len(text) - 2:len(text)]\n\treturn text[len(text) // 2:len(text)]')
+
+# \tif len(text) % 2 > 0:\n\t\treturn text[len(text) - 2:len(text)]\n\treturn text[len(text) // 2:len(text)]
