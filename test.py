@@ -1,5 +1,3 @@
-from app import Problem
-
 test_list = ['water', 'armadillo', 'pplllasllllasd', 'cheat']
 
 
