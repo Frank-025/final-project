@@ -1,9 +1,8 @@
 categories = ['Strings', 'Lists', 'Booleans', 'Vocabulary']
-s_list = ['Placeholder', 'Placeholder', 'Placeholder', 'Placeholder']
-l_list = []
+s_list = ['make_baab', 'split', 'Placeholder', 'Placeholder']
+l_list = ['first_last6', '', '', '']
 b_list = []
 v_list = []
-
 
 # Coding problem basic solution:
 # What makes this not good is the use of exec().
@@ -40,12 +39,7 @@ class Problem:
         for ti in self.test_inputs:
 
             # Unpack the test variables
-            if type(self.test_inputs) is str or type(self.test_inputs) is int:
-                x = ti
-                checker = False
-            else:
-                x, y = ti
-                checker = True
+            x, y = ti
 
             # Two dictionaries so we can grab the variables used in the exec() function
             grab1, grab2 = {}, {}
@@ -53,14 +47,10 @@ class Problem:
             # Create new copies of the strings for testing
             u_copy, new_str = user_question, full_question
 
-            # Attach the variable we'll be collecting in the grab dictionaries, as well as setting up
+            # Attach the variable we'll be collection in the grab dictionaries, as well as setting up
             # the run. Print statement is there for debugging/ensuring output is desired
-            if checker is False:
-                new_str += f'\n\nmain_answer = {self.question}({x})'
-                u_copy += f"\n\nmain_answer = {self.question}({x})"
-            elif checker is True:
-                new_str += f'\n\nmain_answer = {self.question}({x}, {y})'
-                u_copy += f"\n\nmain_answer = {self.question}({x}, {y})"
+            new_str += f"\n\nmain_answer = {self.question}({x}, {y})"
+            u_copy += f"\n\nmain_answer = {self.question}({x}, {y})"
             print(new_str)
             print(u_copy)
 
@@ -74,9 +64,10 @@ class Problem:
 
         print(f"Score: {counter}")
 
-
-# demo = Problem('splice', 'measure the length of a string and splice it in half', 'def splice(text):\n',
+# demo = Problem('split', 'measure the length of a string and splice it in half', 'def split(text, plac):\n',
 #                    '\tif len(text) % 2 > 0:\n\t\treturn text[len(text) - 2:len(text)]\n\treturn text[len(text) // 2:len(text)]',
-#                    ["'armadillo'", "'cheat'"])
+#                    [("'armadillo'", "'cheat'"), ("'pplllasllllasd'", "'wonder'")])
 #
 # demo.test_answer('\tif len(text) % 2 > 0:\n\t\treturn text[len(text) - 2:len(text)]\n\treturn text[len(text) // 2:len(text)]')
+
+# \tif len(text) % 2 > 0:\n\t\treturn text[len(text) - 2:len(text)]\n\treturn text[len(text) // 2:len(text)]
