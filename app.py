@@ -1,8 +1,4 @@
-categories = ['Strings', 'Lists', 'Booleans', 'Vocabulary']
 s_list = ['make_baab', 'split', 'Placeholder', 'Placeholder']
-l_list = ['first_last6', '', '', '']
-b_list = []
-v_list = []
 
 # Coding problem basic solution:
 # What makes this not good is the use of exec().
@@ -51,8 +47,8 @@ class Problem:
             # the run. Print statement is there for debugging/ensuring output is desired
             new_str += f"\n\nmain_answer = {self.question}({x}, {y})"
             u_copy += f"\n\nmain_answer = {self.question}({x}, {y})"
-            print(new_str)
-            print(u_copy)
+            # print(new_str)
+            # print(u_copy)
 
             # Run the problems. Grab dictionaries collect the 'main_answer' variables
             exec(new_str, grab1)
@@ -62,12 +58,14 @@ class Problem:
             if grab1['main_answer'] == grab2['main_answer']:
                 counter += 1
 
-        print(f"Score: {counter}")
+        if counter == 0:
+            print("Incorrect answer, try again.")
+        elif counter == 2:
+            print("Correct!")
 
+# Test run that works correctly in this file but for some reason doesn't work in the original file.
 # demo = Problem('split', 'measure the length of a string and splice it in half', 'def split(text, plac):\n',
 #                    '\tif len(text) % 2 > 0:\n\t\treturn text[len(text) - 2:len(text)]\n\treturn text[len(text) // 2:len(text)]',
 #                    [("'armadillo'", "'cheat'"), ("'pplllasllllasd'", "'wonder'")])
 #
 # demo.test_answer('\tif len(text) % 2 > 0:\n\t\treturn text[len(text) - 2:len(text)]\n\treturn text[len(text) // 2:len(text)]')
-
-# \tif len(text) % 2 > 0:\n\t\treturn text[len(text) - 2:len(text)]\n\treturn text[len(text) // 2:len(text)]
